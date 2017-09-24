@@ -1,19 +1,2 @@
 # noHitCounter
 Counts hits or deaths and displays it on a web page for use in popular broadcasting software like OBS Studio
-
-A very technical/clinical definition of terms used in this program:
-Split: The path starting from a given location going to and including the boss fight.
-		Splits are generally named after the final boss of the area, but may be arbitrary.
-		It is up to the player to decide how many splits they would like, what the split will be called and in which order splits will appear.
-		You keep track of how many hits you've taken as you play through the entire split, including retries.
-		The player will manually move herself on to the next split when it's time -- eg, after defeating the boss -- via either a hotkey or GUI click.
-
-Hits: Arbitrary. An incrementing integer which the player will use to keep track of their progress. Most commonly, it will be how many times the player has taken damage or died, but that those are just two of very many ways in which players may choose to utilize this counter.
-
-Run: The combination of splits and hits define a run. The run is the sum total of all progress (or regression) of gameplay.
-
-PB: Personal best. This is your best tracked run, generally the result of a previous run, or the end of the current if it is better (lower hits/deaths) than your previously stored best. There isn't a need to enforce each split to be completed before storing the PB, but it might help reduce mistakes which could overwrite tracked progress. The player could simply split repeatedly until they reach the end to save their PB. Community feedback would be welcomed here.
-
-Challenges (Mode): NoHit or Deathless
-	"NoHit": Track hits in an effort to complete all splits without taking a hit.
-	"Deathless": Track deaths in an effort to complete all splits without dying.
