@@ -1,0 +1,28 @@
+{
+	"name":"myrun",
+	"mode":"nohit",
+	"splits":[
+		{"name":"Father Gascoigne","hits":0},
+		{"name":"Cleric Beast","hits":0},
+		{"name":"Blood-starved Beast","hits":0},
+		{"name":"Vicar Amelia","hits":0},
+		{"name":"Witch of Hemwick","hits":0},
+		{"name":"Shadows of Yharnam","hits":1},
+		{"name":"Rom, the Vacuous Spider","hits":1},
+		{"name":"The One Reborn","hits":0},
+		{"name":"Micolash, Host of the Nightmare","hits":4},
+		{"name":"Darkbeast Paarl","hits":0},
+		{"name":"Mergo's Wet Nurse","hits":1},
+		{"name":"Amygdala","hits":0},
+		{"name":"Celestial Emissary","hits":0},
+		{"name":"Ebrietas, Daughter of the Cosmos","hits":0},
+		{"name":"Martyr Logarius","hits":0},
+		{"name":"Ludwig, The Accursed","hits":0},
+		{"name":"Laurence, The First Vicar","hits":0},
+		{"name":"Living Failures","hits":0},
+		{"name":"Lady Maria of the Astral Clocktower","hits":0},
+		{"name":"Orphan of Kos","hits":0},
+		{"name":"Gehrman, the First Hunter","hits":0},
+		{"name":"Moon Presence","hits":0}
+	]
+}
