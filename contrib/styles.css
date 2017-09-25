@@ -1,0 +1,16 @@
+#info-table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border: 0px solid black;
+	border-collapse: collapse;
+	text-align: left;
+	/* width: 100%; */
+}
+
+#info-table tr:nth-child(even){background-color: #020202;}
+
+#info-table th {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	background-color: #4CAF50;
+	color: white;
+}

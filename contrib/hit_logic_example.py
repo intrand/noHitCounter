@@ -37,10 +37,12 @@ for split in run["splits"]: # we need to look at all splits all of the time -- t
 # print(str(total) + "      " + str(totaldiff) + "  " + str(pbtotal)) # debug output to see summary row (below last split)
 
 output = {} # intialize output dict
-output = [{"name": name, "hits": hits, "diff": diff, "pbhit": pbhit, "total": total, "pbtotal": pbtotal} for name, hits, diff, pbhit, total, pbtotal in zip(outputsplits, outputhits, outputdiffs, outputpbhits, outputtotal, outputpbtotal)] # build json using python magic!
+output = [{"Split": name, "Hit|": hits, "Diff|": diff, "PB|": pbhit, "Total|": total, "PBTotal": pbtotal} for name, hits, diff, pbhit, total, pbtotal in zip(outputsplits, outputhits, outputdiffs, outputpbhits, outputtotal, outputpbtotal)] # build json using python magic!
+# output = [{"Split": name, "Hit": hits, "Diff": diff, "PB": pbhit} for name, hits, diff, pbhit in zip(outputsplits, outputhits, outputdiffs, outputpbhits)] # build json using python magic!
+# output = [{"Split": name, "Hit": hits, "Diff": diff, "PB": pbhit, "Total": total} for name, hits, diff, pbhit, total in zip(outputsplits, outputhits, outputdiffs, outputpbhits, outputtotal)] # build json using python magic!
 # print(output) # for seeing what that looks like right now
-output_html = json2html.convert(json = output) # convert our json to html using more magic!
-output_html = "<html><head><title>" + run["name"] + "</title><meta http-equiv=\"refresh\" content=\"1\";/></head><body style=\"background-color:rgba(0, 0, 0, 0.5);color:white;\">" + output_html + "</font></body></html>" # style the output by wrapping it in valid, although basic HTML
+output_html = json2html.convert(json = output, table_attributes="id=\"info-table\"") # convert our json to html using more magic!
+output_html = "<html><head><title>" + run["name"] + "</title><meta http-equiv=\"refresh\" content=\"1\";/><link rel=\"stylesheet\" href=\"styles.css\"></head><body style=\"background-color:rgba(0, 0, 0, 0.5);color:white;\">" + output_html + "</font></body></html>" # style the output by wrapping it in valid, although basic HTML
 f = open(output_file, "w") # write out to myrun.html
 f.write(output_html) # write to disk
 f.close() # close the file handles
