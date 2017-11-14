@@ -4,9 +4,17 @@
 	border-collapse: collapse;
 	text-align: left;
 	/* width: 100%; */
+    text-shadow:
+        -1px -1px 0 #555555,  
+        1px -1px 0 #555555,
+        -1px 1px 0 #555555,
+        1px 1px 0 #555555;
 }
 
+#info-table td{text-align: right;}
+#info-table td:first-child{text-align: left;}
 #info-table tr:nth-child(even){background-color: #020202;}
+#info-table tr:nth-child(odd){background-color: #0F0F0F;}
 
 #info-table th {
 	padding-top: 0px;
