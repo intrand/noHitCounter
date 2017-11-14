@@ -42,7 +42,7 @@ output = [{"Split": name, "Hit|": hits, "Diff|": diff, "PB|": pbhit, "Total|": t
 # output = [{"Split": name, "Hit": hits, "Diff": diff, "PB": pbhit, "Total": total} for name, hits, diff, pbhit, total in zip(outputsplits, outputhits, outputdiffs, outputpbhits, outputtotal)] # build json using python magic!
 # print(output) # for seeing what that looks like right now
 output_html = json2html.convert(json = output, table_attributes="id=\"info-table\"") # convert our json to html using more magic!
-output_html = "<html><head><title>" + run["name"] + "</title><meta http-equiv=\"refresh\" content=\"1\";/><link rel=\"stylesheet\" href=\"styles.css\"></head><body style=\"background-color:rgba(0, 0, 0, 0.5);color:white;\">" + output_html + "</font></body></html>" # style the output by wrapping it in valid, although basic HTML
+output_html = "<html><head><title>" + run["name"] + "</title><meta http-equiv=\"Pragma\" content=\"no-cache\";/><meta http-equiv=\"Expires\" content=\"-1\";/><meta http-equiv=\"refresh\" content=\"1\";/><link rel=\"stylesheet\" href=\"styles.css\"></head><body style=\"background-color:rgba(0, 0, 0, 0.5);color:white;\">" + output_html + "</font></body></html>" # style the output by wrapping it in valid, although basic HTML
 f = open(output_file, "w") # write out to myrun.html
 f.write(output_html) # write to disk
 f.close() # close the file handles
