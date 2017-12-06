@@ -10,9 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browser-jsonp": "^1.1.5",
     "electron": "^1.7.9",
-    "pouchdb": "^6.3.4",
-    "riot": "^3.7.4"
+    "lowdb": "^1.0.0"
   }
 }
