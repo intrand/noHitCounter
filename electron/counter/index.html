@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>myrun</title>
+
+        <!--<script src="counterpage.js"></script>-->
+
+
+    </head>
+    <body style="background-color:powderblue;">
+
+        <div id="app">
+            <table border="1">
+                <tr id="table-header">
+                    <th>name</th>
+                    <th>hits</th>
+                    <th>diff</th>
+                    <th>pbhit</th>
+                    <th>total</th>
+                    <th>pbtotal</th>
+                </tr>
+                <tr v-for="line in lines">
+
+                    <td>{{line.name}}</td>
+                    <td>{{line.hits}}</td>
+                    <td>{{line.diff}}</td>
+                    <td>{{line.pbhit}}</td>
+                    <td>{{line.total}}</td>
+                    <td>{{line.pbtotal}}</td>
+                    <td><button v-on:click="incrementHit(line)">inc</button></td>
+                </tr>
+            </table>
+            <button v-on:click="doSomething">Do something</button>
+        </div>
+
+
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="../node_modules/pouchdb/dist/pouchdb.js"></script>
+        <script src="counterpage.js">
+        </script>
+
+
+    </body>
+</html>
