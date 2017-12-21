@@ -1,21 +1,31 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, globalShortcut, Menu, MenuItem} = require('electron')
 const path = require('path')
 const url = require('url')
+const http = require('http');
+const WebSocket = require('ws');
+var axios = require('axios')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
-function createWindow () {
-    // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+var localPortNum = 4101;
+var localHostName = "http://localhost:" + localPortNum;
 
+const defaultHotKeys = {
+    inc: "CommandOrControl+I",
+    down: "CommandOrControl+D",
+    up: "CommandOrControl+U"
+}
+function createWindow () {
+
+    // Instantiate Express App
+    var app = require('./server/server');
+    app(4101);
+
+    win = new BrowserWindow({width: 800, height: 600});
     // and load the index.html of the app.
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }))
+    win.loadURL("http://localhost:4101");
 
     // Open the DevTools.
     win.webContents.openDevTools()
@@ -27,8 +37,38 @@ function createWindow () {
         // when you should delete the corresponding element.
         win = null
     })
-    
+
+    hotKeys = {
+        inc: "COM"
+    }
 }
+
+function increment(){
+
+    axios.get(localHostName + "/db/currentRun/inc")
+        .then((response) => {
+            console.log('did inc call');
+    });
+}
+
+function moveUp(){
+
+    axios.get(localHostName + "/db/currentRun/up")
+        .then((response) => {
+            console.log('did inc call');
+        });
+}
+
+function moveDown(){
+
+    axios.get(localHostName + "/db/currentRun/down")
+        .then((response) => {
+            console.log('did inc call');
+        });
+}
+
+
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

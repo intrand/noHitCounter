@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Current Run</title>
+    <link rel="stylesheet" href="currentrun.css"/>
+</head>
+<body style="background-color:powderblue;">
+
+
+    <div id="app">
+        <h3>{{currentRun.name}}</h3>
+        <button v-on:click="moveUp()">Up</button> <button v-on:click="moveDown()">down</button>
+        <br/>
+        <button v-on:click="incrementHit()">Add Hit</button>
+
+        <table border="1">
+            <tr id="table-header">
+                <th>name</th>
+                <th>hits</th>
+                <th>diff</th>
+                <th>pbhit</th>
+                <th>total</th>
+                <th>pbtotal</th>
+            </tr>
+            <tr v-for="(split, index) in currentRun.splits" v-bind:class="{active:index == currentRun.currentSplit}" >
+
+                <td>{{split.name}}</td>
+                <td>{{split.hits}}</td>
+                <td>{{split.diff}}</td>
+                <td>{{split.pbhit}}</td>
+                <td>{{split.total}}</td>
+                <td>{{split.pbtotal}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script src="../vendor/socket.io.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+    <script src="currentRun.js"></script>
+
+</body>
+</html>
