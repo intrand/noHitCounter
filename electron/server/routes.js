@@ -39,6 +39,7 @@ module.exports = function(app, db, io) {
             settings.hotkeys = req.body;
             db.set('settings', settings).write()
             res.json(db.get('settings').value().hotkeys);
+            io.emit("hotkeysSync", {"hotkeys": settings.hotkeys});
 
         })
 
@@ -84,7 +85,6 @@ module.exports = function(app, db, io) {
             var currRunId = db.get('currentRunId').value();
             if(currRunId && currRunId != undefined && currRunId.length > 0){
                 var currentRun = db.get('runs').getById(currRunId).value();
-                console.log('got current run', currentRun);
                 currentRun.splits[currentRun.currentSplit].hits += 1;
                 db.get('runs').replaceById(currRunId, currentRun);
                 io.emit("currentRunUpdate", {"currentRun": currentRun});
@@ -135,7 +135,6 @@ module.exports = function(app, db, io) {
 
     app.route('/run/:id')
         .get((req, res) => {
-            console.log('run id: ' + req.params.id);
             db.set('currentRunId', req.params.id).write();
             res.redirect('/currentRun');
         })

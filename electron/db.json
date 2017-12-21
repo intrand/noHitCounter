@@ -47,14 +47,14 @@
         }
       ],
       "id": "59d597b4-88fc-4852-b32e-716c6852cfbe",
-      "startDate": "2017-12-21T20:42:27.687Z",
+      "startDate": "2017-12-21T21:23:13.134Z",
       "currentSplit": 0
     }
   ],
   "currentRunId": "59d597b4-88fc-4852-b32e-716c6852cfbe",
   "settings": {
     "hotkeys": {
-      "inc": "CommandOrControl+I",
+      "inc": "CommandOrControl+L",
       "up": "CommandOrControl+U",
       "down": "CommandOrControl+D"
     }

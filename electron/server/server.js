@@ -5,7 +5,7 @@ var app = require('express')();
 var http = require('http').Server(app)
 var io = require('socket.io')(http);
 
-module.exports = function(port) {
+module.exports = function(port, callback) {
     io.on('connection', function(socket){
         console.log('a user connected');
     });
@@ -43,9 +43,7 @@ module.exports = function(port) {
 
     app.use(express.static(path.join(__dirname, './public')));
 
-    http.listen(port, function(){
-        console.log('listening on *:' + port);
-    });
+    http.listen(port, callback);
 
 
 

@@ -1,9 +1,16 @@
-const {app, BrowserWindow, globalShortcut, Menu, MenuItem} = require('electron')
+const {app, BrowserWindow, globalShortcut, ipcMain} = require('electron')
 const path = require('path')
 const url = require('url')
 const http = require('http');
-const WebSocket = require('ws');
+var io = require('socket.io');
 var axios = require('axios')
+
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+
+const adapter = new FileSync('db.json')
+const db = low(adapter)
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -21,14 +28,26 @@ function createWindow () {
 
     // Instantiate Express App
     var app = require('./server/server');
-    app(4101);
+    app(4101, function() {
+        console.log('server started');
+
+    });
+
 
     win = new BrowserWindow({width: 800, height: 600});
     // and load the index.html of the app.
     win.loadURL("http://localhost:4101");
+    var socket = require('socket.io-client')('http://localhost:4101');
+    socket.on('connect', () => {
+        console.log('made connection');
+    });
+
+    socket.on('hotkeysSync', function(data) {
+        registerNewHotKeys(data.hotkeys);
+    })
 
     // Open the DevTools.
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
 
     // Emitted when the window is closed.
     win.on('closed', () => {
@@ -38,9 +57,37 @@ function createWindow () {
         win = null
     })
 
-    hotKeys = {
-        inc: "COM"
-    }
+    win.on('will-quit', () => {
+        globalShortcut.unregisterAll()
+    });
+    refreshHotKeys();
+
+
+}
+
+function refreshHotKeys(){
+    registerNewHotKeys(getHotKeys());
+}
+
+
+function getHotKeys() {
+   return db.get('settings').value().hotkeys;
+
+}
+
+function registerNewHotKeys(hotkeys){
+    console.log('register hot keys ' + JSON.stringify(hotkeys));
+    globalShortcut.unregisterAll();
+    globalShortcut.register(hotkeys.inc, () => {
+        increment();
+    })
+    globalShortcut.register(hotkeys.up, () => {
+        moveUp();
+    })
+    globalShortcut.register(hotkeys.down, () => {
+        moveDown();
+    });
+
 }
 
 function increment(){
