@@ -1,0 +1,62 @@
+{
+  "runConfigs": [
+    {
+      "name": "Run Config 1",
+      "type": "Nohit",
+      "splits": [
+        {
+          "name": "boss 1",
+          "hits": 0
+        },
+        {
+          "name": "boss 2",
+          "hits": 0
+        },
+        {
+          "name": "boss 3",
+          "hits": 0
+        },
+        {
+          "name": "boss 4",
+          "hits": 0
+        }
+      ],
+      "id": "59d597b4-88fc-4852-b32e-716c6852cfbe"
+    }
+  ],
+  "runs": [
+    {
+      "name": "Run Config 1",
+      "type": "Nohit",
+      "splits": [
+        {
+          "name": "boss 1",
+          "hits": 0
+        },
+        {
+          "name": "boss 2",
+          "hits": 0
+        },
+        {
+          "name": "boss 3",
+          "hits": 0
+        },
+        {
+          "name": "boss 4",
+          "hits": 0
+        }
+      ],
+      "id": "59d597b4-88fc-4852-b32e-716c6852cfbe",
+      "startDate": "2017-12-21T21:23:13.134Z",
+      "currentSplit": 0
+    }
+  ],
+  "currentRunId": "59d597b4-88fc-4852-b32e-716c6852cfbe",
+  "settings": {
+    "hotkeys": {
+      "inc": "CommandOrControl+L",
+      "up": "CommandOrControl+U",
+      "down": "CommandOrControl+D"
+    }
+  }
+}
