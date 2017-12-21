@@ -13,3 +13,7 @@ npm install
 npm start
 ```
 
+All pages are also served on http://localhost:4101
+
+Current run that is started is at http://localhost:4101/currentRun
+
